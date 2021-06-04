@@ -1,0 +1,7 @@
+User-agent: *
+
+Allow: /
+
+DisAllow:
+
+Sitemap: https://nonkuyid.github.io/sitemap.xml
