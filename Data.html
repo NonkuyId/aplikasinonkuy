@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>My First Project</title>
+</head>
+<body>
+
+ <div id="Registration">
+  <h1>Registration using Firebase!!!</h1>
+  <input type="text" name="email" id="email" placeholder="Enter Your Email"><br><br>
+  <input type="text" name="pass" id="password" placeholder="Enter Your Password"><br><br>
+  <input type="text" name="age" id="age" placeholder="Enter Your Age"><br><br>
+  <input type="text" name="fname" id="fname" placeholder="Enter Your Father Name"><br><br>
+  <input type="text" name="cnic" id="cnic" placeholder="Enter Your CNIC"><br><br>
+  <button onclick="RegisterUser()">Registration New User</button>
+  <button onclick="LoginUser()">Login User</button>
+ </div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCff2PwEC-g9WmCPoCc-snvELkgMa7TlPI",
+        authDomain: "nonkuy-64a54.firebaseapp.com",
+        projectId: "nonkuy-64a54",
+    storageBucket: "nonkuy-64a54.appspot.com",
+    messagingSenderId: "511404109690",
+    appId: "1:511404109690:web:198224f16f4f89a6d4b0c3",
+    measurementId: "G-ZQ6ZJEEWEG"
+      };
+      firebase.initializeApp(config);
+
+
+  function RegisterUser() {
+   var email=document.getElementById('email').value;
+   var password=document.getElementById('password').value;
+   var age=document.getElementById('age').value;
+   var cnic=document.getElementById('cnic').value;
+   var fname=document.getElementById('fname').value;
+   firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
+    // alert('User Register successfully');
+    var id=firebase.auth().currentUser.uid;
+    firebase.database().ref('Users/'+id).set({
+     fatherName:fname,
+     UserAge:age,
+     CNIC:cnic,
+    });
+
+
+
+   }).catch(function(error){
+
+    var errorcode=error.code;
+    var errormsg=error.message;
+
+   });
+  }
+  function LoginUser(){
+   var email=document.getElementById('email').value;
+   var password=document.getElementById('password').value;
+   firebase.auth().signInWithEmailAndPassword(email,password).then(function(){
+
+
+    var id=firebase.auth().currentUser.uid;
+    window.location.replace("file:///E:/7.%20ANIME%20RILIS%20NONKUY%20CEK/data2.html");
+    localStorage.setItem('id',id);
+    
+   }).catch(function(error){
+
+    var errorCode=error.code;
+    var errorMsg=error.message;
+
+   });
+  }
+</script>
+
+</body>
+</html>

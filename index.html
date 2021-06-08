@@ -71,8 +71,10 @@
       <h3>Firebase Web login Example</h3>
       <input type="email" placeholder="Email..." id="email_field" />
       <input type="password" placeholder="Password..." id="password_field" />
-  
       <button onclick="login()">Login to Account</button>
+      <br>
+      <a href="daftar.html" style="text-decoration: none;">
+      <button>Daftar</button></div></a>
     </div>
   
     <div id="user_div" class="loggedin-div">
@@ -106,6 +108,7 @@
   <script>
     firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      
       // User is signed in.
   
       document.getElementById("user_div").style.display = "block";
@@ -138,7 +141,7 @@
       var errorCode = error.code;
       var errorMessage = error.message;
   
-      window.alert("Error : " + errorMessage);
+      window.alert("Error : Akun Anda Belum Terdaftar");
   
       // ...
     });
@@ -148,7 +151,5 @@
   function logout(){
     firebase.auth().signOut();
   }
-  
-  </script>
 
-  
+  </script>

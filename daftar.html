@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="    viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+<script src="form.js"></script>
+    <title>Login System</title>
+</head>
+<body>
+  <div id="login_div" class="main-div">
+    <div class="formContainer">
+    <h1>Enter Credentials Here:</h1>
+    <input type="email" placeholder="email here" id="email"><br>
+    <input type="password" placeholder="password here" id="password"><br>
+    <button onclick="signUp()" id="signUp">SignUp</button>
+</div>
+
+
+    
+</body>
+</html>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var config = {
+        apiKey: "AIzaSyCff2PwEC-g9WmCPoCc-snvELkgMa7TlPI",
+        authDomain: "nonkuy-64a54.firebaseapp.com",
+        projectId: "nonkuy-64a54",
+    storageBucket: "nonkuy-64a54.appspot.com",
+    messagingSenderId: "511404109690",
+    appId: "1:511404109690:web:198224f16f4f89a6d4b0c3",
+    measurementId: "G-ZQ6ZJEEWEG"
+      };
+      firebase.initializeApp(config);
+
+  const auth =  firebase.auth();
+
+  //signup function
+  function signUp(){
+    var email = document.getElementById("email");
+    var password = document.getElementById("password");
+
+    const promise = auth.createUserWithEmailAndPassword(email.value,password.value);
+    //
+    promise.catch(e=>alert(e.message));
+    alert("SignUp Berhasil");
+  }
+
+  //signIN function
+  function  signIn(){
+    var email = document.getElementById("email");
+    var password  = document.getElementById("password");
+    const promise = auth.signInWithEmailAndPassword(email.value,password.value);
+    promise.catch(e=>alert(e.message));
+    
+  }
+
+
+  //signOut
+
+  function signOut(){
+    auth.signOut();
+    alert("SignOut Successfully from System");
+  }
+
+  //active user to homepage
+  firebase.auth().onAuthStateChanged((user)=>{
+    if(user){
+      var email = user.email;
+      alert("Active user "+email);
+
+    }else{
+      alert("Akun Tidak Aktif")
+    }
+  })
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+</head>
+<body>
+ <p>Profile Of User</p>
+<h1 id="fname"></h1>
+<h2 id="age"></h2>
+<h3 id="cnic"></h3>
+ <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCff2PwEC-g9WmCPoCc-snvELkgMa7TlPI",
+        authDomain: "nonkuy-64a54.firebaseapp.com",
+        projectId: "nonkuy-64a54",
+    storageBucket: "nonkuy-64a54.appspot.com",
+    messagingSenderId: "511404109690",
+    appId: "1:511404109690:web:198224f16f4f89a6d4b0c3",
+    measurementId: "G-ZQ6ZJEEWEG"
+      };
+      firebase.initializeApp(config);
+</script>
+<script type="text/javascript">
+ var userId=localStorage.getItem('id');
+ firebase.database().ref('Users/'+userId).once('value').then(function(snapshot){
+  var fname=(snapshot.val() && snapshot.val().fatherName);
+  var cnic=(snapshot.val() && snapshot.val().CNIC);
+  var age=(snapshot.val() && snapshot.val().UserAge);
+
+  document.getElementById('fname').innerHTML=fname;
+  document.getElementById('age').innerHTML=age;
+  document.getElementById('cnic').innerHTML=cnic;
+ });
+
+</script>
+ 
+</body>
+</html>
