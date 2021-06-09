@@ -2,12 +2,10 @@
 var firebaseConfig = {
     apiKey: "AIzaSyCkVN4LzfWhjtBlR0JtLwWADnqNX-wV0ek",
     authDomain: "nonkuy-movie.firebaseapp.com",
-    databaseURL: "https://nonkuy-movie-default-rtdb.firebaseio.com",
     projectId: "nonkuy-movie",
     storageBucket: "nonkuy-movie.appspot.com",
     messagingSenderId: "1028577477155",
     appId: "1:1028577477155:web:566243c61b5e702c3aa796",
-    measurementId: "G-EJQJR6BWZV"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
