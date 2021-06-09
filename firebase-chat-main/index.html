@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Comment Selector</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <!-- header portion to enter video url in the form  -->
+        <div class="header br">
+            <h1 class="main-heading"><span>YouTube</span> Comment Selector!</h1>
+            <form id="urlForm">
+                <input type="text" placeholder="Enter Youtube url" name="url" autocomplete="off">
+                <button class="my-btn" type="submit"><i class="material-icons">search</i></button>
+            </form>
+        </div>
+
+        <!-- winner section  -->
+        <div class="winner">
+            <h4>Winner! &nbsp;<i class="material-icons">emoji_events</i> </h4>
+            <hr>
+            <div class="comment">
+                <h3 class="name">Litson Thomas</h3>
+                <p class="message">This is a comment</p>
+            </div>
+            <button id="refresh">Select again!</button>
+        </div>
+    </div>
+
+    <!-- loading screen  -->
+    <div class="loading-screen">
+        <h2>Loading Comments...</h2>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
